@@ -54,24 +54,24 @@
 
                 {% else %}
 
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                        <li>
-                            <a href="#">Notre jeux</a>
-                        </li>
-                        <li>
-                            <a href="#">Services</a>
-                        </li>
-                        <li class="active">
-                            <a href="#">Portfolio</a>
-                        </li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a href="{{ path('fos_user_security_login') }}">Connexion</a>
-                        </li>
-                    </ul>
-                </div>
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li>
+                                <a href="#">Notre jeux</a>
+                            </li>
+                            <li>
+                                <a href="#">Services</a>
+                            </li>
+                            <li class="active">
+                                <a href="#">Portfolio</a>
+                            </li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <a href="{{ path('fos_user_security_login') }}">Connexion</a>
+                            </li>
+                        </ul>
+                    </div>
 
                 {% endif %}
 
@@ -80,7 +80,11 @@
             <!-- /.container -->
         </nav>
 
-        {% block body %}{% endblock %}
+        {% block body %}
+            <div>
+                {% block fos_user_content %}{% endblock fos_user_content %}
+            </div>
+        {% endblock %}
         {% javascripts '@AppBundle/Ressources/asset/js/*' %}
         <script type="text/javascript" src="{{ asset_url }}"></script>
         {% endjavascripts %}
